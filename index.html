@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="Emil — Frontend Developer. Portfolio showcasing projects, skills, and contact information." />
+    <title>Emil — Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <a class="skip" href="#main" style="position:absolute;left:-9999px">Skip to content</a>
+
+    <div class="container">
+        <header>
+            <div class="brand">
+                <div class="logo" aria-hidden="true">E</div>
+                <div>
+                    <div style="font-weight:700">Emil</div>
+                    <div style="font-size:13px;color:var(--muted)">Frontend Developer</div>
+                </div>
+            </div>
+
+            <nav aria-label="Primary">
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </nav>
+
+            <button class="btn mobile-nav" id="navToggle" aria-label="Toggle menu">Menu</button>
+        </header>
+
+        <main id="main">
+            <section class="hero" aria-labelledby="hero-title">
+                <div class="intro">
+                    <h1 id="hero-title">Hi — I'm Emil. I build delightful web experiences.</h1>
+                    <p class="lead">I design and develop front-end applications with a focus on performance, accessibility, and polished UI. I enjoy turning ideas into clean, usable products.</p>
+
+                    <div class="actions">
+                        <a class="btn" href="#projects">See projects</a>
+                        <a class="btn secondary" href="#contact">Contact me</a>
+                    </div>
+
+                    <div class="grid" style="margin-top:18px">
+                        <div class="card">
+                            <h3>Open-source UI kit</h3>
+                            <p style="margin:0;color:var(--muted)">A lightweight, accessible component library used in multiple client projects.</p>
+                            <div class="tags"><span class="tag">React</span><span class="tag">CSS</span><span class="tag">Accessibility</span></div>
+                        </div>
+
+                        <div class="card">
+                            <h3>Marketing landing</h3>
+                            <p style="margin:0;color:var(--muted)">Fast and responsive landing page with conversion-focused interactions.</p>
+                            <div class="tags"><span class="tag">HTML</span><span class="tag">Performance</span></div>
+                        </div>
+
+                        <div class="card">
+                            <h3>Dashboard app</h3>
+                            <p style="margin:0;color:var(--muted)">Admin dashboard with charts, realtime updates and role-based access.</p>
+                            <div class="tags"><span class="tag">Vue</span><span class="tag">WebSocket</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div aria-hidden="true" style="min-width:220px;max-width:320px;">
+                    <div style="background:linear-gradient(180deg,#071026,transparent);border-radius:12px;padding:18px;">
+                        <div style="height:180px;border-radius:10px;background:linear-gradient(135deg,#0ea5e9,#60a5fa);display:grid;place-items:center;color:#072034;font-weight:700">Project Preview</div>
+                        <div style="margin-top:12px;color:var(--muted);font-size:13px">Available for freelance work and full-time roles. Open to collaborating on interesting front-end and design-driven projects.</div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="about" aria-labelledby="about-title">
+                <h2 id="about-title" style="margin:0 0 10px">About</h2>
+                <p style="color:var(--muted);margin:0 0 12px">I specialize in building responsive, accessible web interfaces. My workflow includes research, prototyping, and iterative development with a focus on long-term maintainability.</p>
+                <div class="skills" aria-hidden="false">
+                    <span class="skill">HTML</span><span class="skill">CSS</span><span class="skill">JavaScript</span><span class="skill">React</span><span class="skill">TypeScript</span><span class="skill">Accessibility</span>
+                </div>
+            </section>
+
+            <section id="projects" aria-labelledby="projects-title">
+                <h2 id="projects-title" style="margin:0 0 12px">Selected projects</h2>
+                <div class="grid">
+                    <article class="card">
+                        <h3>Project One</h3>
+                        <p style="color:var(--muted)">A responsive web app that helps users track habits and progress with charts and reminders.</p>
+                        <div style="margin-top:12px"><a href="#" aria-label="View project one">View project →</a></div>
+                    </article>
+
+                    <article class="card">
+                        <h3>Project Two</h3>
+                        <p style="color:var(--muted)">An ecommerce storefront with optimized performance and smooth checkout flow.</p>
+                        <div style="margin-top:12px"><a href="#" aria-label="View project two">View project →</a></div>
+                    </article>
+
+                    <article class="card">
+                        <h3>Project Three</h3>
+                        <p style="color:var(--muted)">Realtime collaboration tool with presence indicators and live cursors.</p>
+                        <div style="margin-top:12px"><a href="#" aria-label="View project three">View project →</a></div>
+                    </article>
+                </div>
+            </section>
+
+            <section id="contact" aria-labelledby="contact-title">
+                <h2 id="contact-title" style="margin:0 0 12px">Contact</h2>
+                <p style="color:var(--muted);margin:0 0 12px">Want to work together or have a question? Send a message or email me directly at <a href="mailto:you@example.com">you@example.com</a>.</p>
+
+                <form action="mailto:you@example.com" method="post" enctype="text/plain" style="display:grid;gap:10px;max-width:600px">
+                    <input name="Name" placeholder="Your name" style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:inherit" required>
+                    <input name="Email" type="email" placeholder="your@email.com" style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:inherit" required>
+                    <textarea name="Message" rows="5" placeholder="Message" style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:inherit" required></textarea>
+                    <div style="display:flex;gap:10px">
+                        <button class="btn" type="submit">Send</button>
+                        <button class="btn secondary" type="reset">Reset</button>
+                    </div>
+                </form>
+            </section>
+        </main>
+
+        <footer>
+            <div>© <span id="year"></span> Emil • Built with HTML & CSS</div>
+        </footer>
+    </div>
+
+
+</body>
+</html>

@@ -1,0 +1,320 @@
+/* style.css
+    Enhances a portfolio index.html with modern, accessible, responsive styles.
+    Drop into /d:/Emil/Github/Hackclubportfolio/style.css
+*/
+
+/* CSS reset (light) */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+:root{
+    --bg:#0f1724; --card:#0b1220; --muted:#9aa4b2; --accent:#7dd3fc; --glass: rgba(255,255,255,0.04);
+    --radius:12px; --maxw:1100px; color-scheme: dark;
+    /* Additional variables */
+    --accent-2: #7c3aed;
+    --glass-strong: rgba(255,255,255,0.06);
+    --text: #e6eef6;
+    --success: #34d399;
+    --danger: #fb7185;
+    --gap: 1.25rem;
+    --transition: 200ms cubic-bezier(.2,.8,.2,1);
+    --shadow: 0 8px 30px rgba(2,6,23,0.6);
+    --glass-border: rgba(255,255,255,0.04);
+}
+
+/* Dark/light mode */
+@media (prefers-color-scheme: light) {
+  :root {
+     --bg: #f7fafc;
+     --card: #ffffff;
+     --muted: #6b7280;
+     --accent: #2563eb;
+     --accent-2: #7c3aed;
+     --glass: rgba(2,6,23,0.03);
+     --glass-strong: rgba(2,6,23,0.04);
+     --text: #0b1220;
+     --shadow: 0 10px 30px rgba(2,6,23,0.08);
+     --glass-border: rgba(2,6,23,0.06);
+  }
+}
+
+/* Manual theme toggle override */
+.light-mode {
+  --bg: #f7fafc;
+  --card: #ffffff;
+  --muted: #6b7280;
+  --accent: #2563eb;
+  --accent-2: #7c3aed;
+  --glass: rgba(2,6,23,0.03);
+  --glass-strong: rgba(2,6,23,0.04);
+  --text: #0b1220;
+  --shadow: 0 10px 30px rgba(2,6,23,0.08);
+  --glass-border: rgba(2,6,23,0.06);
+  color-scheme: light;
+}
+
+/* Accessibility: respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  :root { --transition: 0ms; }
+  * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 32px 20px;
+  font-family: system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+  background:
+    radial-gradient(1200px 600px at 10% 10%, rgba(125,211,252,0.06), transparent 10%),
+    radial-gradient(900px 500px at 90% 90%, rgba(125,211,252,0.03), transparent 10%),
+    var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Page container */
+.container {
+  width: 100%;
+  max-width: var(--maxw);
+}
+
+/* Header / Nav */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+/* Brand */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 600;
+}
+.brand .logo {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: linear-gradient(135deg,#0ea5e9,#60a5fa);
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  color: #072034;
+}
+
+/* Nav links */
+nav {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+nav a {
+  padding: 8px 10px;
+  border-radius: 8px;
+  color: var(--muted);
+  font-size: 14px;
+  text-decoration: none;
+}
+nav a:hover {
+  background: var(--glass);
+  color: var(--accent);
+}
+
+/* Hero */
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+  padding: 28px;
+  border-radius: var(--radius);
+  margin-bottom: 22px;
+}
+.intro {
+  max-width: 620px;
+}
+.hero h1 {
+  margin: 0 0 8px;
+  font-size: 28px;
+  letter-spacing: -0.02em;
+}
+.hero p.lead {
+  color: var(--muted);
+  margin: 0 0 16px;
+}
+
+/* Actions */
+.actions {
+  display: flex;
+  gap: 12px;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.04);
+  background: transparent;
+  color: var(--accent);
+  cursor: pointer;
+  font-weight: 600;
+}
+.btn.secondary {
+  background: rgba(255,255,255,0.02);
+  color: #cfeefe;
+}
+
+/* Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin-top: 18px;
+}
+.card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
+  padding: 16px;
+  border-radius: 12px;
+}
+.card h3 {
+  margin: 0 0 8px;
+  font-size: 16px;
+}
+.tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 8px;
+}
+.tag {
+  background: rgba(255,255,255,0.02);
+  padding: 6px 8px;
+  border-radius: 8px;
+}
+
+/* Sections */
+section {
+  margin-bottom: 22px;
+}
+section h2 {
+  margin: 0 0 10px;
+}
+
+/* Skills */
+.skills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.skill {
+  background: rgba(255,255,255,0.03);
+  padding: 6px 10px;
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* Footer */
+footer {
+  color: var(--muted);
+  font-size: 13px;
+  padding: 20px 0;
+  text-align: center;
+  width: 100%;
+}
+
+/* Form overrides for inline styles */
+input, textarea, button {
+  padding: 10px 12px !important;
+  border-radius: 8px !important;
+  border: 1px solid rgba(255,255,255,0.03) !important;
+  background: transparent !important;
+  color: inherit !important;
+  font-family: inherit !important;
+  font-size: inherit !important;
+}
+button {
+  cursor: pointer !important;
+}
+
+/* Responsive */
+@media (max-width: 720px) {
+  body {
+    padding: 24px 16px;
+  }
+  .hero {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    gap: 20px;
+  }
+  nav {
+    display: none;
+  }
+  .mobile-nav {
+    display: inline-flex;
+  }
+  section {
+    margin-bottom: 18px;
+  }
+  .grid {
+    gap: 12px;
+  }
+  .card {
+    padding: 12px;
+  }
+}
+@media (max-width: 480px) {
+  body {
+    padding: 16px 10px;
+  }
+  .hero {
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+  header {
+    margin-bottom: 20px;
+  }
+  section {
+    margin-bottom: 16px;
+  }
+  .grid {
+    gap: 10px;
+  }
+  .card {
+    padding: 10px;
+  }
+  .actions {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+@media (min-width: 721px) {
+  .mobile-nav {
+    display: none;
+  }
+}
+
+/* Focus styles */
+a:focus, button:focus, input:focus, textarea:focus {
+  outline: 2px solid rgba(125,211,252,0.18);
+  outline-offset: 3px;
+}
